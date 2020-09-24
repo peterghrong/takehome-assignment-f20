@@ -1,17 +1,29 @@
 <template>
-  <p>I'm a Counter!</p>
+  <div>
+    <p>
+      {{ count }}
+    </p>
+    <div v-bind:seen="true" v-show="!seen">
+      <button v-on:click="count += 1">+1</button>
+      <button v-on:click="count -= 1">-1</button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      count: 0
-    };
-  }
+  props: {
+    count: {
+      type: Number,
+      default: 0,
+    },
+    seen: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
-
 <style>
 </style>
 
